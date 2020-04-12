@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/divazbozz/note-mgmt-v1/static/css/main.5ecd60fb.chunk.css",
+    "main.js": "/divazbozz/note-mgmt-v1/static/js/main.02db42fb.chunk.js",
+    "main.js.map": "/divazbozz/note-mgmt-v1/static/js/main.02db42fb.chunk.js.map",
+    "runtime-main.js": "/divazbozz/note-mgmt-v1/static/js/runtime-main.ec36c4ab.js",
+    "runtime-main.js.map": "/divazbozz/note-mgmt-v1/static/js/runtime-main.ec36c4ab.js.map",
+    "static/js/2.5bb2e13b.chunk.js": "/divazbozz/note-mgmt-v1/static/js/2.5bb2e13b.chunk.js",
+    "static/js/2.5bb2e13b.chunk.js.map": "/divazbozz/note-mgmt-v1/static/js/2.5bb2e13b.chunk.js.map",
+    "index.html": "/divazbozz/note-mgmt-v1/index.html",
+    "precache-manifest.9433049f36779d87a6ccb682d9fa2854.js": "/divazbozz/note-mgmt-v1/precache-manifest.9433049f36779d87a6ccb682d9fa2854.js",
+    "service-worker.js": "/divazbozz/note-mgmt-v1/service-worker.js",
+    "static/css/main.5ecd60fb.chunk.css.map": "/divazbozz/note-mgmt-v1/static/css/main.5ecd60fb.chunk.css.map",
+    "static/js/2.5bb2e13b.chunk.js.LICENSE.txt": "/divazbozz/note-mgmt-v1/static/js/2.5bb2e13b.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ec36c4ab.js",
+    "static/js/2.5bb2e13b.chunk.js",
+    "static/css/main.5ecd60fb.chunk.css",
+    "static/js/main.02db42fb.chunk.js"
+  ]
+}
