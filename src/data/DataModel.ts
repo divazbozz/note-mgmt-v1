@@ -63,6 +63,9 @@ const onEditorDataTitleChange = (val: string, id: string) => {
 const onEditorRenderFoldChange = (val: boolean, id: string) => {
   onSingleEditorChange(id, "render/fold").set(val);
 };
+/* @TODO: focus is currently busted; it needs to turn off the visibility for others
+ * needs to extrapolate render data model to its own field, so we are not sending unnecessary data.
+ */
 const onEditorRenderVisibleChange = (val: boolean, id: string) => {
   onSingleEditorChange(id, "render/visible").set(val);
 };

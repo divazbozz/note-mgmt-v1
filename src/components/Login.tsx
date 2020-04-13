@@ -26,6 +26,7 @@ const Login = () => {
     _setPassword(event.target.value as string);
   };
   const onLogin = (_event: React.MouseEvent) => {
+    console.log(`[onLogin]`);
     const auth = firebase.auth();
     const promise = auth.signInWithEmailAndPassword(email, password);
     promise.catch((e) => {

@@ -34,6 +34,7 @@ const Editor = ({
 }: EditorProps) => {
   const classes = useStyles();
   const onTitleChangeWrapper = (event: React.ChangeEvent<HTMLInputElement>) => {
+    console.log("onTitleChangeWrapper");
     onTitleChange(event.target.value, id);
   };
   const onChangeWrapper = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -44,6 +45,7 @@ const Editor = ({
     console.log("onToggleWrapper");
     onToggleFold(!fold, id);
   };
+
   const onFocusWrapper = (_event: React.MouseEvent) => {
     console.log("onFocusWrapper");
     onFocus(true, id);
