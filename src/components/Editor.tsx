@@ -3,6 +3,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
+import TemplateRender from "./TemplateRender";
+import Divider from "@material-ui/core/Divider";
 const useStyles = makeStyles((theme) => ({
   root: {
     "& .MuiTextField-root": {
@@ -21,6 +23,7 @@ type EditorProps = {
   fold: boolean;
   onToggleFold: (val: boolean, id: string) => void;
   onFocus: (val: boolean, id: string) => void;
+  onDelete: (id: string) => void;
 };
 const Editor = ({
   id,
@@ -31,6 +34,7 @@ const Editor = ({
   onToggleFold,
   onFocus,
   onChange,
+  onDelete,
 }: EditorProps) => {
   const classes = useStyles();
   const onTitleChangeWrapper = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -45,62 +49,86 @@ const Editor = ({
     console.log("onToggleWrapper");
     onToggleFold(!fold, id);
   };
-
   const onFocusWrapper = (_event: React.MouseEvent) => {
     console.log("onFocusWrapper");
     onFocus(true, id);
   };
+  const onDeleteWrapper = (_event: React.MouseEvent) => {
+    console.log("onDeleteWrapper");
+    onDelete(id);
+  };
 
   return (
     <div className={classes.root}>
-      <Grid className={classes.control} container spacing={3}>
-        <Grid item xs={6}>
-          {/* Editor title */}
-          <TextField
-            label="title"
-            fullWidth={true}
-            variant="standard"
-            value={title}
-            onChange={onTitleChangeWrapper}
-          />
-        </Grid>
-        <Grid item xs={6}>
-          {/* Editor control */}
-          <Grid container spacing={3} justify={"flex-end"}>
-            <Grid item>
-              <Button
-                variant="contained"
-                size="small"
-                color="primary"
-                onClick={onToggleWrapper}
-              >
-                Show/Hide
-              </Button>
+      <Grid container direction="column">
+        <Grid item>
+          <Grid className={classes.control} container spacing={3}>
+            <Grid item xs={6}>
+              {/* Editor title */}
+              <TextField
+                label="title"
+                fullWidth={true}
+                variant="standard"
+                value={title}
+                onChange={onTitleChangeWrapper}
+              />
             </Grid>
-            <Grid item>
-              <Button
-                variant="contained"
-                size="small"
-                color="primary"
-                onClick={onFocusWrapper}
-              >
-                Focus
-              </Button>
+            <Grid item xs={6}>
+              {/* Editor control */}
+              <Grid container spacing={3} justify={"flex-end"}>
+                <Grid item>
+                  <Button
+                    variant="contained"
+                    size="small"
+                    color="primary"
+                    onClick={onToggleWrapper}
+                  >
+                    Show/Hide
+                  </Button>
+                </Grid>
+                <Grid item>
+                  <Button
+                    variant="contained"
+                    size="small"
+                    color="primary"
+                    onClick={onFocusWrapper}
+                  >
+                    Focus
+                  </Button>
+                </Grid>
+                <Grid item>
+                  <Button
+                    variant="contained"
+                    size="small"
+                    color="primary"
+                    onClick={onDeleteWrapper}
+                  >
+                    Delete
+                  </Button>
+                </Grid>
+              </Grid>
             </Grid>
           </Grid>
         </Grid>
+        {/* Editor input area */}
+        {fold ? null : (
+          <Grid container spacing={2} direction="row">
+            <Grid item xs={6}>
+              <TemplateRender content={content} />
+            </Grid>
+            <Grid item xs={6}>
+              <TextField
+                multiline
+                label="thoughts"
+                value={content}
+                onChange={onChangeWrapper}
+                variant="outlined"
+                fullWidth={true}
+              />
+            </Grid>
+          </Grid>
+        )}
       </Grid>
-      {/* Editor input area */}
-      {fold ? null : (
-        <TextField
-          multiline
-          label="thoughts"
-          value={content}
-          onChange={onChangeWrapper}
-          variant="outlined"
-          fullWidth={true}
-        />
-      )}
     </div>
   );
 };

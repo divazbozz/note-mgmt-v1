@@ -8,6 +8,7 @@ import {
   onEditorDataTitleChange,
   onEditorRenderFoldChange,
   subscribeEditorsValueChange,
+  onEditorRemove,
 } from "../data/DataModel";
 import Editor from "./Editor";
 import Grid from "@material-ui/core/Grid";
@@ -96,6 +97,7 @@ const BlockGrid = () => {
             onToggleFold={onEditorRenderFoldChange}
             onTitleChange={onEditorDataTitleChange}
             onChange={onEditorDataContentChange}
+            onDelete={onEditorRemove}
           />
         </Grid>
       );

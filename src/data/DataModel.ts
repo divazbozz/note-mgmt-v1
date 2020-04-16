@@ -70,6 +70,9 @@ const onEditorRenderVisibleChange = (val: boolean, id: string) => {
   onSingleEditorChange(id, "render/visible").set(val);
 };
 
+const onEditorRemove = (id: string) => {
+  onSingleEditorChange(id, "").remove();
+};
 type SetStateEditorsData = React.Dispatch<React.SetStateAction<EditorListType>>;
 const subscribeEditorsValueChange = (setState: SetStateEditorsData) => {
   const databaseRef = firebase.database().ref(DBConfig.basePath);
@@ -101,4 +104,5 @@ export {
   onEditorRenderFoldChange,
   onEditorRenderVisibleChange,
   subscribeEditorsValueChange,
+  onEditorRemove,
 };
